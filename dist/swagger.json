@@ -1,54 +1,150 @@
 {
   "swagger" : "2.0",
   "info" : {
-    "description" : "A public API for retrieving official events at Cornell University",
+    "description" : "A public API for retrieving classes at Cornell University",
     "version" : "0.1",
-    "title" : "Cornell Events",
+    "title" : "Cornell Classes",
     "contact" : {
       "name" : "Cornell Open Data Initiative",
       "url" : "https://codi.engineering.cornell.edu",
       "email" : "codi@cornellappdev.com"
     }
   },
-  "host" : "events.cornell.edu",
-  "basePath" : "/api/2",
+  "host" : "classes.cornell.edu",
+  "basePath" : "/api/2.0",
   "schemes" : [ "https" ],
-  "security" : [ {
-    "UserSecurity" : [ ]
-  } ],
   "paths" : {
-    "/events" : {
+    "/config/rosters.json" : {
       "get" : {
-        "summary" : "Get Cornell Events",
-        "parameters" : [ {
-          "name" : "featured",
-          "in" : "query",
-          "description" : "Whether to show featured events or not",
-          "required" : false,
-          "type" : "boolean",
-          "default" : true
-        }, {
-          "name" : "days",
-          "in" : "query",
-          "description" : "Number of days ahead to look for events",
-          "required" : false,
-          "type" : "integer",
-          "default" : 7
-        } ],
+        "summary" : "Get Cornell available rosters",
+        "parameters" : [ ],
         "responses" : {
           "200" : {
-            "description" : "A JSON of events"
+            "description" : "A JSON of rosters"
           }
         }
       }
-    }
-  },
-  "securityDefinitions" : {
-    "UserSecurity" : {
-      "description" : "Security for the API key",
-      "type" : "apiKey",
-      "name" : "api_key",
-      "in" : "query"
+    },
+    "/config/acadCareers.json" : {
+      "get" : {
+        "summary" : "Get available academic careers for a roster",
+        "parameters" : [ {
+          "name" : "roster",
+          "in" : "query",
+          "description" : "Roster semester & year (i.e. FA14, SP16)",
+          "required" : true,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "A JSON of academic careers"
+          }
+        }
+      }
+    },
+    "/config/acadGroups.json" : {
+      "get" : {
+        "summary" : "Get available academic groups for a roster",
+        "parameters" : [ {
+          "name" : "roster",
+          "in" : "query",
+          "description" : "Roster semester & year (i.e. FA14, SP16)",
+          "required" : true,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "A JSON of academic groups"
+          }
+        }
+      }
+    },
+    "/config/classLevels.json" : {
+      "get" : {
+        "summary" : "Get available class levels for a roster",
+        "parameters" : [ {
+          "name" : "roster",
+          "in" : "query",
+          "description" : "Roster semester & year (i.e. FA14, SP16)",
+          "required" : true,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "A JSON of class levels"
+          }
+        }
+      }
+    },
+    "/config/subjects.json" : {
+      "get" : {
+        "summary" : "Get available subjects for roster",
+        "parameters" : [ {
+          "name" : "roster",
+          "in" : "query",
+          "description" : "Roster semester & year (i.e. FA14, SP16)",
+          "required" : true,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "A JSON of subjects"
+          }
+        }
+      }
+    },
+    "/search/classes.json" : {
+      "get" : {
+        "summary" : "Get scheduled classes, including Course of Study details",
+        "parameters" : [ {
+          "name" : "roster",
+          "in" : "query",
+          "description" : "Roster semester & year (i.e. FA14, SP16)",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "subject",
+          "in" : "query",
+          "description" : "Academic subject (i.e. CS, PHIL)",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "acadGroup[]",
+          "in" : "query",
+          "description" : "Academic group (i.e. AG)",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "acadCareer[]",
+          "in" : "query",
+          "description" : "Academic career (i.e. GR)",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "classLevels[]",
+          "in" : "query",
+          "description" : "Class levels (i.e. 6000)",
+          "required" : false,
+          "type" : "integer"
+        }, {
+          "name" : "crseAttrs[]",
+          "in" : "query",
+          "description" : "Course attribute (i.e. CU-SBY)",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "q",
+          "in" : "query",
+          "description" : "Search term (i.e. graphics)",
+          "required" : false,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "A JSON of classes"
+          }
+        }
+      }
     }
   },
   "definitions" : { }
