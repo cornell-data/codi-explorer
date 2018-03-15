@@ -28,6 +28,22 @@ JSON editor configuration example:
 
 Give it a [try](http://swaggerui.herokuapp.com/?url=http://petstore.swagger.io/v2/swagger.json) and enter your own swagger definition.
 
+## Running Server Locally
+
+To run this project locally, you will need to have node and npm are installed. Then do the following:
+
+1. Install http-server 
+
+    ```
+    npm install -g http-server
+    ```
+
+2. Serve files from your file system 
+
+    ```
+    http-server — cors
+    ```
+
 
 ## Disclaimer
 
