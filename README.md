@@ -1,6 +1,6 @@
 # CODI Explorer
 
-This is a fork of the open-source project https://github.com/jensoleg/swagger-ui, and it has been modified for CODI's API documentation.
+This is a fork of the open-source project https://github.com/jensoleg/swagger-ui, which has been modified for CODI's API documentation. The Jensoleg project was a modified fork of [Swagger UI](https://github.com/swagger-api/swagger-ui). Swagger UI is a dependency-free collection of HTML, Javascript, and CSS assets that dynamically generate beautiful documentation from a Swagger-compliant API. Learn more about Swagger [here](http://swagger.io).
 
 ## Running Server Locally
 
