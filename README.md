@@ -6,7 +6,7 @@ This is a fork of the open-source project https://github.com/jensoleg/swagger-ui
 
 To run this project locally, you will need to have `node` and `npm` installed. Then do the following:
 
-1. Install http-server 
+1. Install `http-server`
 
     ```
     npm install -g http-server
