@@ -15,7 +15,7 @@ To run this project locally, you will need to have `node` and `npm` installed. T
 2. Serve files from your file system 
 
     ```
-    http-server — cors
+    http-server --cors
     ```
 
 ## License
