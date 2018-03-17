@@ -12,10 +12,10 @@ To run this project locally, you will need to have `node` and `npm` installed. T
     npm install -g http-server
     ```
 
-2. Serve files from your file system 
+2. Navigate to the `dist` directory and serve files from your file system 
 
     ```
-    http-server — cors
+    http-server --cors
     ```
 
 ## License
