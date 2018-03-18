@@ -52,6 +52,6 @@
     "swagger-client": "git+https://github.com/jensoleg/swagger-js.git"
   },
   "scripts": {
-    "start": "node index.js"
+    "start": "./node_modules/http-server/bin/http-server --cors"
   }
 }
