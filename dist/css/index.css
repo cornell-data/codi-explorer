@@ -1,4 +1,9 @@
 @charset "UTF-8";
+.active-page {
+  weight: bold;
+  color: red;
+}
+
 .color {
     background: #f00;
     border-radius: 3px;
@@ -15439,7 +15444,6 @@ header.site-header.site-header .navbar-header {
 }
 @media (min-width: 992px) {
     header.site-header.site-header .navbar-header {
-        margin-right: 0;
         margin-left: 0;
         float: left;
     }
